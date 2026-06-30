@@ -155,11 +155,13 @@ function handleQ8(k) {
 
 // ── Q9: País / precios ───────────────────────────────────
 // ⚠️ ACTUALIZAR estos valores y URLs de checkout antes de publicar
+// ⚠️ ACTUALIZAR URLs de checkout antes de publicar
+// Precios de referencia calculados para 71% OFF
 const PRICES = {
-  mexico:   { cur:'MXN', price:'197',    ref:'MXN 497',    inst:'o en 3 pagos de MXN 69', co:'CHECKOUT_URL_MX' },
-  colombia: { cur:'COP', price:'39.900', ref:'COP 99.900', inst:null,                      co:'CHECKOUT_URL_CO' },
-  usa:      { cur:'USD', price:'9.90',   ref:'USD 24.90',  inst:null,                      co:'CHECKOUT_URL_US' },
-  otro:     { cur:'USD', price:'9.90',   ref:'USD 24.90',  inst:null,                      co:'CHECKOUT_URL_OTHER' }
+  mexico:   { cur:'MXN', price:'197',    ref:'MXN 679',     inst:'o en 3 pagos de MXN 69', co:'CHECKOUT_URL_MX' },
+  colombia: { cur:'COP', price:'39.900', ref:'COP 137.900', inst:null,                       co:'CHECKOUT_URL_CO' },
+  usa:      { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                       co:'CHECKOUT_URL_US' },
+  otro:     { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                       co:'CHECKOUT_URL_OTHER' }
 };
 function handleQ9(k) {
   S.cena_pattern=k;
@@ -382,7 +384,4 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(d => {
       const c = d.country_code;
       S.country = c==='MX' ? 'mexico' : c==='CO' ? 'colombia' : c==='US' ? 'usa' : 'otro';
-      S.pricing = PRICES[S.country] || PRICES.otro;
-    })
-    .catch(() => { S.country = 'otro'; S.pricing = PRICES.otro; });
-});
+      S.pricing = P
