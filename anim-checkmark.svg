@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <style>
+    .circle { fill: none; stroke: #455A3C; stroke-width: 4; stroke-dasharray: 220; stroke-dashoffset: 220; animation: drawCircle 0.6s ease forwards; }
+    .check  { fill: none; stroke: #455A3C; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 60; animation: drawCheck 0.4s ease 0.55s forwards; }
+    @keyframes drawCircle { to { stroke-dashoffset: 0; } }
+    @keyframes drawCheck  { to { stroke-dashoffset: 0; } }
+  </style>
+  <circle class="circle" cx="40" cy="40" r="34"/>
+  <polyline class="check" points="22,40 34,53 58,27"/>
+</svg>
