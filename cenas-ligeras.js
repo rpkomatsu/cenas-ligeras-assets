@@ -1,7 +1,7 @@
 // ── State ────────────────────────────────────────────────
 const S = {
   screen: 'opening',
-  q1:null, q2:null, q3:null, q4:null, q5:null, q6:null, q7:null, q8:null, country:null,
+  q1:null, q2:null, q3:null, q4:null, q5:null, q6:null, q7:null, q8:null, country:null, cena_pattern:null,
   profile: null, modifier: null,
   situacion: 'llegas a la tarde o la noche',
   objetivo: null, gatillo: null, tentativa: null, objecion: null,
@@ -162,7 +162,7 @@ const PRICES = {
   otro:     { cur:'USD', price:'9.90',   ref:'USD 24.90',  inst:null,                      co:'CHECKOUT_URL_OTHER' }
 };
 function handleQ9(k) {
-  S.country=k; S.pricing=PRICES[k];
+  S.cena_pattern=k;
   markOpt(event); trackEvent('question_answer',{q:'q9',a:k}); setTimeout(quizNext, 350);
 }
 
@@ -376,4 +376,13 @@ document.addEventListener('DOMContentLoaded', () => {
   showScreen('opening');
   initFAQ();
   trackEvent('quiz_start');
+  // Auto-detect country for pricing
+  fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(d => {
+      const c = d.country_code;
+      S.country = c==='MX' ? 'mexico' : c==='CO' ? 'colombia' : c==='US' ? 'usa' : 'otro';
+      S.pricing = PRICES[S.country] || PRICES.otro;
+    })
+    .catch(() => { S.country = 'otro'; S.pricing = PRICES.otro; });
 });
