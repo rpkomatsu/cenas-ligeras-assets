@@ -15,6 +15,8 @@ let idx = 0;
 
 // ── Screen management ────────────────────────────────────
 function showScreen(id) {
+  const topbar = document.getElementById('quiz-topbar');
+  if (topbar) topbar.style.display = id === 'opening' ? 'none' : '';
   document.querySelectorAll('.quiz-screen').forEach(s => {
     s.style.display = 'none';
     s.classList.remove('visible');
@@ -382,6 +384,4 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('https://ipapi.co/json/')
     .then(r => r.json())
     .then(d => {
-      const c = d.country_code;
-      S.country = c==='MX' ? 'mexico' : c==='CO' ? 'colombia' : c==='US' ? 'usa' : 'otro';
-      S.pricing = P
+      const c = 
