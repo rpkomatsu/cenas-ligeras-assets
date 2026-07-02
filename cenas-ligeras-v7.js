@@ -6,11 +6,12 @@
    ════════════════════════════════════════════════════════ */
 const META_PIXEL_ID = '950747460056412';
 
+const CHECKOUT_URL = 'https://pay.hotmart.com/Q106575352R?checkoutMode=10';
 const PRICES = {
-  mexico:   { cur:'MXN', price:'197',    ref:'MXN 679',     inst:'o en 3 pagos de MXN 69', co:'CHECKOUT_URL_MX' },
-  colombia: { cur:'COP', price:'39.900', ref:'COP 137.900', inst:null,                     co:'CHECKOUT_URL_CO' },
-  usa:      { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                     co:'CHECKOUT_URL_US' },
-  otro:     { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                     co:'CHECKOUT_URL_OTHER' }
+  mexico:   { cur:'MXN', price:'197',    ref:'MXN 679',     inst:'o en 3 pagos de MXN 69', co:CHECKOUT_URL },
+  colombia: { cur:'COP', price:'39.900', ref:'COP 137.900', inst:null,                     co:CHECKOUT_URL },
+  usa:      { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                     co:CHECKOUT_URL },
+  otro:     { cur:'USD', price:'9.90',   ref:'USD 34.90',   inst:null,                     co:CHECKOUT_URL }
 };
 
 // ── Meta Pixel (solo si hay ID configurado) ──────────────
