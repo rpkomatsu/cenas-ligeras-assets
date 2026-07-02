@@ -4,7 +4,7 @@
    1. META_PIXEL_ID
    2. PRICES (checkout URLs por país)
    ════════════════════════════════════════════════════════ */
-const META_PIXEL_ID = ''; // ← Tu Pixel ID. Vacío = no carga.
+const META_PIXEL_ID = '950747460056412';
 
 const PRICES = {
   mexico:   { cur:'MXN', price:'197',    ref:'MXN 679',     inst:'o en 3 pagos de MXN 69', co:'CHECKOUT_URL_MX' },
